@@ -1,32 +1,27 @@
-# CarGame — 3D Arcade Racing
+# CarGame — 3D Arcade Racing (Clean rewrite)
 
-This repository contains a simple arcade-style 3D car racing demo built with Three.js and embedded in a Streamlit app for easy sharing.
+This branch contains a cleaned, rewritten version of the Three.js arcade demo and a Streamlit wrapper that embeds it.
 
-What’s included
-
-- index.html — Three.js scene that renders the game.
-- src/main.js — Arcade driving logic and scene setup.
-- streamlit_app.py — Streamlit wrapper that inlines the game and serves it in an iframe.
+Files in this branch
+- index.html — minimal HTML shell that loads Three.js and the game script.
+- src/main.js — cleaned, tested arcade driving code (player car, simple oval track, HUD).
+- streamlit_app.py — Streamlit wrapper that inlines the JS into the HTML and renders it via components.html.
+- requirements.txt — dependencies for Streamlit Cloud.
 
 How to run locally
-
-1. Install dependencies:
-
+1. Checkout the branch:
+   git fetch && git checkout threejs-arcade-streamlit
+2. (Optional) create a virtualenv and activate it.
+3. Install dependencies:
    pip install -r requirements.txt
-
-2. Run the Streamlit app:
-
+4. Run Streamlit:
    streamlit run streamlit_app.py
 
-How to deploy to Streamlit Cloud
-
-1. Push this repository to GitHub (branch is ready: threejs-arcade-streamlit).
-2. Go to https://share.streamlit.io and connect your GitHub account.
-3. Select this repository and the branch threejs-arcade-streamlit.
-4. Set the main file to streamlit_app.py (the UI usually detects it automatically).
+Deploy to Streamlit Cloud
+1. Push the branch to GitHub (already pushed by the assistant).
+2. Visit https://share.streamlit.io, connect your GitHub account, and select this repository and branch.
+3. Set the main file to streamlit_app.py if required.
 
 Notes
-
-- Controls: WASD or arrow keys to drive, R to reset.
-- The game uses Three.js from a CDN and inlines src/main.js into index.html at runtime via streamlit_app.py, so no extra static file routing is required.
-- For mobile, the Streamlit iframe height may need adjusting; contact me if you want touch controls added.
+- The Streamlit wrapper inlines the JS at runtime so no static file serving is required.
+- If keyboard input doesn't respond inside the iframe, click the canvas to focus it. I can add a "Click to focus" helper if you want.

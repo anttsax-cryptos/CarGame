@@ -6,7 +6,7 @@ st.set_page_config(page_title="CarGame — 3D Arcade Racing", layout="wide")
 st.title("CarGame — 3D Arcade Racing (Streamlit)")
 st.markdown("Use WASD or arrow keys to drive. Press R to reset.")
 
-# Load the HTML and inline the main.js so the component is self-contained.
+# Inline index.html and main.js so the component is self-contained
 base = Path(__file__).parent
 html_path = base / "index.html"
 js_path = base / "src" / "main.js"
@@ -17,9 +17,8 @@ else:
     html = html_path.read_text(encoding='utf-8')
     main_js = js_path.read_text(encoding='utf-8')
 
-    # Replace the external src script with an inline script containing main.js
-    if '<script src="src/main.js"></script>' in html:
-        html = html.replace('<script src="src/main.js"></script>', f"<script>{main_js}</script>")
+    # Replace the script tag with inline JS
+    html = html.replace('<script src="src/main.js"></script>', f"<script>{main_js}</script>")
 
-    # Render the HTML in an iframe via components.html
+    # Render the combined HTML as a component
     components.html(html, height=720, scrolling=False)
