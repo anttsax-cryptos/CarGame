@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CarGame — 3D Racing Demo</title>
+  <style>
+    html,body{height:100%;margin:0}
+    #overlay{position:fixed;left:10px;top:10px;color:#fff;font-family:monospace;z-index:10}
+    canvas{display:block}
+    body{background:#111}
+  </style>
+</head>
+<body>
+  <div id="overlay">Speed: <span id="speed">0</span> | Use WASD / Arrow keys to drive</div>
+  <script src="https://unpkg.com/three@0.161.0/build/three.min.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>
